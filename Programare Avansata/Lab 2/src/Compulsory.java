@@ -11,8 +11,8 @@ public class Compulsory {
         andrei.setMinTime(LocalTime.NOON);
         andrei.setMaxTime(LocalTime.MIDNIGHT);
 
-        System.out.println(andrei.toString());
-        System.out.println(audi.toString());
-        System.out.println(garage.toString());
+        System.out.println(andrei);
+        System.out.println(audi);
+        System.out.println(garage);
     }
 }
