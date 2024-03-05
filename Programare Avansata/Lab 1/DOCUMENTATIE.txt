@@ -1,0 +1,14 @@
+In Main.java, unde se afla codul pentru Homework, am parsat "String[] args" (elementele 0 1 si 2) si le-am stocat in 3 variabile de tip int : a, b si k unde a reprezinta o limita inferioara, b o limita superioara iar k cifra cu care vrem sa verificam proprietatea precizata in enuntul teme. Pentru a verifica aceasta proprietate am validat cei 3 parametrii, apoi am pornit un for de la a la b care verifica pentru fiecare element din iteratie daca suma recurenta a patratelor cifrelor numarului pana cand acesta devine de o cifra este egala cu k, iar daca acest lucru este adevarat am lipit pe i (elementul pt care am verificat) la un String kReducibleNumbers pe care l-am afisat la final.
+Timpul de rulare a fost calculat instantiind o variabila de tip long numita startTime la inceputul codului si una endTime la finalul codului, ambele initiate cu System.nanoTime(). Pentru a calcula si afisa in milisecunde am calculat float duration = (float) (endTime - startTime) / 1_000_000;
+
+In Wheel.java, unde se afla codul pentru Bonus am parsat "String[] args" (elementul 0) si l-am stocat in n de tip int, am validat variabila n, apoi am construit matricea de adiacenta astfel:
+1. Avand in vedere ca graful este un Wheel Graph , avem muchie de la 1 la fiecare nod din graf asa ca am pornit un for care atribuie oricarei muchii (1,x) si (x,1) cu 1, unde 2<=x<=n si n>=4.
+2. Am atribuit muchiilor de tip (x, x+1) si (x+1, x) ,unde 2<=x<=n-1, valoarea 1
+3. Am atribuit muchiei (2,n-1) respectiv (n-1, 2) valoarea 1;
+Folosind apoi un for am afisat matricea.
+Pentru a afisa ciclurile grafului am mers pe premiza urmatoare:
+1.Avem n^2 - 3n + 2 cicluri care incep si se termina in 1 si unul care incepe si se termina cu oricare din celelalte noduri.
+2. Am realizat un for care ia fiecare nod diferit de 1 cu toate nodurile de dupa el si inclusiv de la 2 pana la el (clockwise), folosind calcul in modulo n (nr de muchii) si am afisat aceste cicluri (liniile 38-49) si am numarat ciclurile afisate folosind variabila cycles.
+3. Am realizat un for pentru a afisa ciclul 2 3 ... (n-1) 2 si am adunat 1 la cycles.
+La final am verificat daca n^2 - 3n + 3 este egal cu valoarea variabile cycles (este adevarat oricare ar fi n>=4).
+
