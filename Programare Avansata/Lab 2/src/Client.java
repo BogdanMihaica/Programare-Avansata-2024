@@ -1,4 +1,6 @@
 import java.time.LocalTime;
+import java.util.Objects;
+
 enum ClientType{
     REGULAR,
     PREMIUM
@@ -73,6 +75,18 @@ public class Client {
     private LocalTime minTime;
     private LocalTime maxTime;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Client client = (Client) o;
+        return type == client.type && Objects.equals(name, client.name) && Objects.equals(minTime, client.minTime) && Objects.equals(maxTime, client.maxTime);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(type, name, minTime, maxTime);
+    }
 
     @Override
     public String toString() {
