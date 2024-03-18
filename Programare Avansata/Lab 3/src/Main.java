@@ -1,39 +1,26 @@
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Church antonDePadova=new Church("Anton de Padova", "Iasi");
-        Concert beachPlease = new Concert("Beach Please", 100, "Constanta");
-        Statue hydra = new Statue("Hydra", "Iasi");
-        Trip aroundEurope = new Trip("Around Europe", 500, "Tour Eiffel", "Tour of Pisa", "Omu'");
-
-        antonDePadova.setAvgTourists(50);
-        antonDePadova.setVisitDays(1,2,3,4,5,6,7);
-        antonDePadova.setStartHours(LocalTime.of(8,0),LocalTime.of(8,0),LocalTime.of(8,0),LocalTime.of(8,0),LocalTime.of(8,0),LocalTime.of(13,0),LocalTime.of(13,0));
-        antonDePadova.setEndHours(LocalTime.of(20,0),LocalTime.of(20,0),LocalTime.of(20,0),LocalTime.of(20,0),LocalTime.of(20,0),LocalTime.of(18,0),LocalTime.of(18,0));
-        antonDePadova.setMaxTourists(100);
-        antonDePadova.setType("Catholic");
-        System.out.println(antonDePadova);
-
-        beachPlease.setStartDay(12);
-        beachPlease.setEndDay(30);
-        beachPlease.setStartMonth(6);
-        beachPlease.setEndMonth(6);
-        System.out.println(beachPlease);
-
-        hydra.setAvgTourists(30);
-        hydra.setMaxTourists(100);
-        hydra.setStartHour(LocalTime.of(0,0),LocalTime.of(0,0),LocalTime.of(0,0),LocalTime.of(0,0),LocalTime.of(0,0),LocalTime.of(0,0),LocalTime.of(0,0));
-        hydra.setEndHour(LocalTime.of(23,59),LocalTime.of(23,59),LocalTime.of(23,59),LocalTime.of(23,59),LocalTime.of(23,59),LocalTime.of(23,59),LocalTime.of(23,59));
-        hydra.setVisitDays(1,2,3,4,5,6,7);
-        System.out.println(hydra);
-        aroundEurope.setStartDay(1);
-        aroundEurope.setStartMonth(5);
-        aroundEurope.setStartYear(2024);
-        aroundEurope.setEndDay(30);
-        aroundEurope.setEndMonth(5);
-        aroundEurope.setEndYear(2024);
-        System.out.println(aroundEurope);
+        TravelPlan Plan = new TravelPlan("Plan de vizitare");
+        Church SfMaria = new Church("Sfanta Maria Regina", "Tamaseni");
+        Church SfParascheva = new Church("Sfanta Parascheva", "Iasi");
+        Concert BeachPlease = new Concert("Beach Please", 400, "Mamaia");
+        Concert Untold = new Concert("Untold", 200, "Cluj");
+        Statue Sfinx = new Statue("Sfinxul", "Muntii Bucegi");
+        Statue Hydra = new Statue("Hydra", "Iasi");
+        Trip trip= new Trip();
+        Plan.setVisitDay(Sfinx, LocalDate.of(2024, 11, 12));
+        Plan.setVisitDay(Hydra, LocalDate.of(2024, 9, 11));
+        Plan.setVisitDay(SfParascheva, LocalDate.of(2024, 8, 6));
+        Plan.setVisitDay(SfMaria, LocalDate.of(2024, 10, 14));
+        Plan.setVisitDay(BeachPlease, LocalDate.of(2024, 7, 11));
+        Plan.setVisitDay(Untold, LocalDate.of(2024, 8, 8));
+        System.out.println(Plan);
+        trip.setName("Prin Romania");
+        trip.setTimePeriod("11.07.2024 - 12.11.2024");
+        trip.setAttractions(Sfinx,SfMaria,BeachPlease,Untold,Hydra,SfParascheva);
     }
 }

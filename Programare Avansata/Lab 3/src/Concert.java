@@ -1,5 +1,11 @@
-public class Concert implements Payable{
+
+import java.time.LocalTime;
+import java.util.Map;
+
+
+public class Concert extends Attraction implements Payable{
     String type;
+    public static boolean visitable = false;
     String name;
     int fee;
 
@@ -34,6 +40,7 @@ public class Concert implements Payable{
     }
 
     public Concert(String name, int fee, String location) {
+        super(name);
         this.name = name;
         this.fee = fee;
         this.location = location;
@@ -115,5 +122,15 @@ public class Concert implements Payable{
                         location()+
                 "Type of music: " + getType()
         );
+    }
+
+    @Override
+    public boolean isVisitable() {
+        return false;
+    }
+
+    @Override
+    public boolean isPayable() {
+        return true;
     }
 }

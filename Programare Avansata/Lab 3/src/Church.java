@@ -1,9 +1,10 @@
 import java.time.DayOfWeek;
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Map;
 
-public class Church implements Visitable{
-
+public class Church extends Attraction implements Visitable{
+    public static boolean visitable = true;
     int maxTourists;
     String type;
 
@@ -26,6 +27,7 @@ public class Church implements Visitable{
     int avgTourists;
 
     public Church(String name, String location) {
+        super(name);
         this.name = name;
         this.location = location;
     }
@@ -120,5 +122,15 @@ public class Church implements Visitable{
 
 
         );
+    }
+
+    @Override
+    public boolean isVisitable() {
+        return true;
+    }
+
+    @Override
+    public boolean isPayable() {
+        return false;
     }
 }

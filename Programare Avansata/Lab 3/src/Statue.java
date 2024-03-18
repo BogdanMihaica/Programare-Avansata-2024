@@ -1,12 +1,14 @@
 import java.time.DayOfWeek;
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Map;
 
-public class Statue implements Visitable{
+public class Statue extends Attraction implements Visitable{
     int maxTourists;
     int avgTourists;
 
     public Statue(String name, String location) {
+        super(name);
         this.name = name;
         this.location = location;
     }
@@ -107,5 +109,15 @@ public class Statue implements Visitable{
                         maxTourists()+averageNumberOfTourists()+location()+canBeVisited()
 
                 );
+    }
+
+    @Override
+    public boolean isVisitable() {
+        return true;
+    }
+
+    @Override
+    public boolean isPayable() {
+        return false;
     }
 }
